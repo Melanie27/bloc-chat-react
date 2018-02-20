@@ -26,14 +26,14 @@ class RoomList extends Component {
         
             <section className='roomlist'>
             <h1>Bloc Chat</h1>
-            
+            <ul>
             {
                 this.state.rooms.map((room, index) =>
-               <div>Room  {room.key}</div>
+               <li>Room  {room.key}</li>
                 )
 
             }
-
+            </ul>
             </section>
         );
     }
