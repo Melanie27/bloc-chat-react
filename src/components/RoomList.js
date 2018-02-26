@@ -15,7 +15,7 @@ class RoomList extends Component {
             const room = snapshot.val();
             room.key = snapshot.key;
             this.setState({ rooms: this.state.rooms.concat( room ) })
-            console.log(room);
+            //console.log(room);
             /*if (this.state.rooms.length === 1) { this.props.setRoom(room) }*/
           });
           this.roomsRef.on('child_removed', snapshot  => {
@@ -39,7 +39,7 @@ class RoomList extends Component {
      //change the value in state in order for it to update in the UI
      //set state to the target element - the input
      this.setState({ newRoomName: e.target.value })
-     console.log( e.target.value ); 
+     //console.log( e.target.value ); 
     }
 
     render() {
@@ -50,7 +50,7 @@ class RoomList extends Component {
             <ul>
             {
                 this.state.rooms.map((room, index) =>
-               <li> {room.name}</li>
+               <li key={index}> {room.name}</li>
                 )
 
             }
