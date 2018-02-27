@@ -6,7 +6,8 @@ class MessageList extends Component {
         super(props);
         this.state = {
             messages: [],
-            newMessage: ''
+            newMessage: '',
+            newMessage: {username: "", content: "", sentAt: "", roomID: ""}
         };
         this.messagesRef = this.props.firebase.database().ref('messages');  
     }
@@ -21,7 +22,9 @@ class MessageList extends Component {
           });
           this.messagesRef.on('child_removed', snapshot  => {
             this.setState({ messages: this.state.messages.filter( message => message.key !== snapshot.key )  })
+            console.log({ messages: this.state.messages.filter( message => message.key !== snapshot.key )  })
           });
+          
           
     }
 
@@ -41,9 +44,12 @@ class MessageList extends Component {
                 <h3>Message List</h3>
                
                 <ul>
-                    {this.state.messages.map((message, index) =>
-                    
-                        <li key={index}> {index}. {message.content} {message.username}</li>
+                    {this.state.messages.filter( message => message.roomID === this.props.activeRoom.key ).map((message, index) =>
+                    <div key={index}>
+                        <h3>{message.username}</h3>
+                        <p>{message.content}</p>
+                     </div>
+                        
                     )
                     }
                 </ul>
