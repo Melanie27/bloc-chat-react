@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import RoomList from './components/RoomList';
 import * as firebase from 'firebase';
+import MessageList from './components/MessageList';
 
 
   // Initialize Firebase
@@ -15,10 +16,19 @@ import * as firebase from 'firebase';
   };
   firebase.initializeApp(config);
 
-  
+  class App extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        activeRoom: ""
+      };
+  }
+
+  handleRoomClickParent = (room) => {
+    this.setState({ activeRoom: room });
+}
 
 
-class App extends Component {
   render() {
     return (
       <div className="App">
@@ -26,12 +36,20 @@ class App extends Component {
         
          </header> 
         <main>
-        <RoomList firebase={firebase}/>
-        
+        <RoomList
+        firebase={firebase}
+        getRoom={this.handleRoomClickParent}
+        activeRoom={this.state.activeRoom}
+/>
+        <MessageList
+        firebase={firebase}
+        activeRoom={this.state.activeRoom}
+/>
         </main>
       </div>
     );
   }
 }
+
 
 export default App;
