@@ -6,7 +6,8 @@ class MessageList extends Component {
         super(props);
         this.state = {
             messages: [],
-            newMessage: {username: "", content: "", sentAt: "", roomID: ""}
+            newMessage: {username: "", content: "", sentAt: "", roomID: ""},
+            newMessageText: ''
         };
         this.messagesRef = this.props.firebase.database().ref('messages');  
     }
@@ -27,14 +28,24 @@ class MessageList extends Component {
           
     }
 
-    /*createMessage(e) {
+    createMessage(e) {
         e.preventDefault();
-        this.setState({message: this.newMessage.value})
-        console.log(this.state)
+       // this.setState({message: this.newMessageText.value})
+        console.log(e)
         this.messagesRef.push({
                 //startedAt: firebase.database.ServerValue.TIMESTAMP
+                //username:user
+                content: this.state.newMessageText,
+                roomID: this.props.activeRoom.key,
+                username: this.props.user.displayName
         });
-    }*/
+    }
+
+    handleChange(e){
+        //change the value in state in order for it to update in the UI
+        //set state to the target element - the input
+        this.setState({ newMessageText: e.target.value })
+       }
 
 
     render() {
@@ -52,6 +63,14 @@ class MessageList extends Component {
                     )
                     }
                 </ul>
+                {
+                this.props.activeRoom.name === undefined ?
+                <p>Please select a chat room to subit your message to</p> :
+                <form onSubmit={ (e) => this.createMessage(e) }>
+                    <input type="text" value={this.state.newMessageText} onChange={ (e) => this.handleChange(e) }/>
+                    <input type="submit" />
+                </form>
+                }
             </section>
         );
     }
