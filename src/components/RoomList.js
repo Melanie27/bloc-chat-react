@@ -1,5 +1,4 @@
 import React, {Component} from 'react' //convert roomlist into a class-based component
-import * as firebase from 'firebase';
 
 
 class RoomList extends Component {

@@ -6,7 +6,6 @@ class MessageList extends Component {
         super(props);
         this.state = {
             messages: [],
-            newMessage: '',
             newMessage: {username: "", content: "", sentAt: "", roomID: ""}
         };
         this.messagesRef = this.props.firebase.database().ref('messages');  
@@ -17,7 +16,7 @@ class MessageList extends Component {
             const message = snapshot.val();
             message.key = snapshot.key;
             this.setState({ messages: this.state.messages.concat( message ) })
-            console.log(message);
+            //console.log(message);
             /*if (this.state.rooms.length === 1) { this.props.setRoom(room) }*/
           });
           this.messagesRef.on('child_removed', snapshot  => {
