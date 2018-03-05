@@ -37,7 +37,8 @@ class MessageList extends Component {
                 //username:user
                 content: this.state.newMessageText,
                 roomID: this.props.activeRoom.key,
-                username: this.props.user.displayName
+                username: this.props.user.displayName,
+                sentAt: this.props.firebase.database.ServerValue.TIMESTAMP
         });
     }
 
@@ -45,8 +46,14 @@ class MessageList extends Component {
         //change the value in state in order for it to update in the UI
         //set state to the target element - the input
         this.setState({ newMessageText: e.target.value })
-       }
+    }
 
+    formatTimestamp(timestamp) {
+        const date = new Date(timestamp)
+        const hours = date.getHours();
+        const minutes = "0" + date.getMinutes();
+        return hours + ':' + minutes.substr(-2);
+    }
 
     render() {
         return (
@@ -58,6 +65,7 @@ class MessageList extends Component {
                     <div key={index}>
                         <h3>{message.username}</h3>
                         <p>{message.content}</p>
+                        <span className="mdl-list__item-secondary-info">{ isNaN(message.sentAt) ? message.sentAt : this.formatTimestamp(message.sentAt)}</span>
                      </div>
                         
                     )
