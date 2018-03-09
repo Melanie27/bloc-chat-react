@@ -1,0 +1,126 @@
+1. Clean code is code that solves the problem in the simplest way possible, is easy to read and maintain. Writing clean code is especially important in larger applications where there are a number of developers working together. In a case like this, if all the developers have a similar understanding of what clean code is, they will write code that is easy for their colleagues to maintain and update. In a large application it is essential to have good naming conventions so that programmers can find the code that manages a particular functionality. 
+
+2. ATMs are a very commonly used object that rely on computers. If code was not created to acceptable standards there would be errors in how much cash was dispensed, updates to account balances and card recognition. Customers would not be happy.  
+
+3. This code is not clean. The function name "do" doesn't tell us anything about what the function actually does. Similarly, the variables "x" and "y" are not informative about what sort of values they will contain. There appear to be nested if-else statements when 1 would do the trick. If the function and variables were accurately names there would be no need for 7 separate comments.
+
+FUNCTION convertDegrees (degrees)
+	
+	IF degrees = fahrenheit
+		SET degrees to (degrees−32) * (5/9) 
+		PRINT degrees "Celsius"
+	ELSE IF degrees = "celsius"
+		SET degrees to degrees * 1.8000 + 32.00
+		PRINT degrees "Fahrenheit" 
+	END IF
+
+END FUNCTION
+
+
+4. The function has a name that explains what it does. The variables are named "sum" and "total" have a clear role in the function. There is a straightforward  if, else statement that explains in the first case trying to get the percentage of a number and that in the case where a total = 0 there is no way to complete the function. 
+
+5a.
+
+FUNCTION checkOutCustomer(cash, subTotal, discountRate, paymentType)
+	CALL getPayment RETURNING amount
+	
+	IF paymentType = 'CASH' THEN  
+       PRINT "Change due: " + cash - subTotal * discountRate + (subTotal * tax)
+   	ELSE IF paymentType = 'CREDIT CARD' THEN
+       PRINT "Your credit card has been charged: " + subTotal * discountRate + (subTotal * tax)
+   END IF
+
+END FUNCTION
+
+
+
+
+5b.
+
+FUNCTION checkoutBook(book, guest)
+ IF guest.accountActive and NOT(guest.hasOverdueBooks) and guest.outstandingFees = 0 THEN
+           APPEND book to guest.books
+           SET book.status to "Checked Out"
+           PRINT "Your books have been issued."    
+ ELSE
+     PRINT "Unable to check out book."
+ END IF
+END FUNCTION
+
+
+5c.  
+
+CLASS BankAccount
+
+	FUNCTION displayBalance()
+    		PRINT balance
+ 	END FUNCTION
+
+ 	FUNCTION deposit(amount)
+    		SET balance to balance + amount
+ 	END FUNCTION
+
+ 	FUNCTION withdraw(amount)
+     	IF balance > amount THEN
+       		SET balance to balance - amount
+     	END
+ 	END FUNCTION
+
+END CLASS
+
+
+CLASS CustomerOffers
+
+	FUNCTION checkStatus()
+     	IF NOT(customer.hasCheckingAccount) THEN
+         		CALL offerCheckingAccount
+     	END
+ 	END FUNCTION
+
+	FUNCTION creditCardOffer()
+     	IF NOT(customer.hasCreditCard) THEN
+         		CALL offerCreditCard
+     	END
+ 	END FUNCTION
+
+END CLASS
+
+
+
+
+
+6. Find out whether the sum of integers is a perfect square
+var arr = [10,2,4,6,1,1,2];
+
+function findSquare (arr) {
+  sum = 0;
+  for (let i=0; i< arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  if (Math.sqrt(sum) % 1 === 0 ) {
+    return Math.sqrt(sum);
+  } else {
+    return "The sum of this array is not a perfect square"
+  }
+}
+
+findSquare(arr);
+
+7. Check Duplicates
+
+var arr = [10,2,4,6,1,9,7, 2, 2, 7];
+var sorted_arr = arr.slice().sort();
+
+function checkDuplicates(arr) {
+  
+  var results = [];
+    for (var i = 0; i < sorted_arr.length - 1; i++) {
+        if (sorted_arr[i + 1] == sorted_arr[i]) {
+            results.push(sorted_arr[i]);
+            return true;
+        }
+    }
+    return false;
+}
+
+checkDuplicates(arr);
