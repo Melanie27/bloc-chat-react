@@ -1,0 +1,38 @@
+1.
+a.
+var line = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+b. 
+line.push('Mary');
+console.log(line);
+
+c.
+function arrayContains(){
+    return line.indexOf('Josh');
+}
+
+arrayContains();
+
+d.
+function searchForName(name) {
+  if (line.indexOf(name) > -1) {
+    return line.indexOf(name);
+
+  } else {
+    return 'that name is not in the array';
+  }
+  
+}
+
+searchForName("Emily");
+
+e.
+line.splice(1, 0, 'Melissa');
+
+f.
+line.splice(4, 1);
+
+2. Making a family tree that could be added to and manipulated
+
+3. The tree structure would allow developers to add positions if there were new siblings born or found and create spaces for new spouses and children from new unions without affecting the rest of the tree structure. 
+
