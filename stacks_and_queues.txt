@@ -1,0 +1,50 @@
+1. The stack data structure manages elements in the last-in-first-out prioritization, whereas the queue data structure manages elements with first-in-first-out prioritization.
+
+2. Stacks and queues are similar in that both structures prioritize entries in an effort to handle data more efficiently and not overwhelm our applications.
+
+3. I would use the stack data structure for both the UNDO and REDO operations. The operations are analogous to pop and push. In both cases you are dealing with the most recent element, with adding it back in or removing it, so both elements should be at the top of the stack.
+
+Programming Questions
+
+1. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+1) Create an empty stack.
+2) One by one push all characters of string to stack.
+3) One by one pop all characters from stack and put 
+   them back to string.
+
+function reverse(s) {
+  var o = [];
+  for (var i = 0, len = s.length; i <= len; i++)
+    o.push(s.charAt(len - i));
+  return o.join('');
+}
+
+reverse('hi');
+
+2.Implement the delete functionality of a stack using one queue. Make a FIFO data structure that mirrors the functionality of a LIFO data structure.
+CLASS Stack
+ FUNCTION push(element)
+   APPEND element to the end of the list
+ END FUNCTION
+
+ FUNCTION pop(element)
+   SET temp to the first element
+   LEFT-SHIFT the list by one entry
+   RETURN temp
+
+ END FUNCTION
+END CLASS
+
+3.
+CLASS QUEUE
+  FUNCTION enqueue(element)
+    APPEND element to the end of the list
+
+  END FUNCTION
+
+  FUNCTION enqueue
+   APPEND element to the end of the list
+
+  END FUNCTION
+END CLASS
