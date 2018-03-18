@@ -1,0 +1,83 @@
+
+
+
+Trees and Graphs
+
+	1.	What is a binary tree and what makes it unique to other trees? A binary tree is a data structure in which each Node may point to a left child and a right  child. 
+	2.	What is a heuristic? A heuristic is a guess that an algorithm makes to solve a complex problem more quickly, but it sacrifices accuracy. 
+	3.	What is another problem besides the shortest-path problem that requires the use of heuristics?  Heuristics can make search algorithm faster by stopping the search if the current possibility is worse than the best solution already found. 
+	4.	What is the difference between a depth-first search and a breadth-first search? A DFS is an algorithm that searches a tree or graph's data by starting at the root node and going straight down until it hits an endpoint.  A BFS is an algorithm that starts that searches a tree  or graph's data by starting at the root node and searching across rows before moving down the tree. 
+	5.	Explain in your own words what an undirected, a-cyclic, unweighted graph is. An undirected, a-cyclic, unweighted graph is a graph where the nodes are not connected in any sort of hierarchy, traversing the graph will not end in a loop and the cost of travel in between nodes is not assigned. 
+	6.	What kind of graph is a binary search tree? Directed, A-cyclic, Unweighted
+
+Programming questions
+
+1. Built an array.  To do a binary search you have to first sort the array. Look at the elements in the center of the array and compare them to the element whose existence you are checking for. If the number is larger than the number you are searching for, you can ignore all items in the array that are larger than the middle number.  If the number is smaller than the number you are searching for, you can ignore all items in the array that are smaller than the middle number.  Repeat the search until the number is found or all  possibilities have been exhausted.
+
+var list = [1, 2, 4, 6, 1, 100, 0, 10000, 3 ];
+list.sort(function (list, b) {
+    return list - b;
+});
+console.log('a,', list);
+
+function binarySearch(arr, i) {
+    var mid = Math.floor(arr.length / 2);
+    console.log(arr[mid], i);
+
+    if (arr[mid] === i) {
+    	console.log('match', arr[mid], i);
+    	return arr[mid];
+    } else if (arr[mid] < i && arr.length > 1) {
+    	console.log('mid lower', arr[mid], i);
+    	return binarySearch(arr.splice(mid, Number.MAX_VALUE), i);
+    } else if (arr[mid] > i && arr.length > 1) {
+	    console.log('mid higher', arr[mid], i);
+	    return binarySearch(arr.splice(0, mid), i);
+    } else { 
+	    console.log('not here', i);
+	    return -1;
+    }
+
+}
+var result = binarySearch(list, 5);
+console.log(result);
+
+2. Build an array. Check to see if the array is empty. If not empty loop through the array and check the position of the first number. Then, check the position of the second number. If both positions are less than the length of the array subtract the second index from the first to find the distance. 
+var list = [8, 3, 10, 1, 6, 14, 4, 7, 13 ];
+var emptyList = [];
+
+function binarySearchNodeDistance (list, n1, n2) {
+
+  if (list.length <= 0) {
+      
+      return 'no numbers in the array';
+   }
+  
+  var nPos1 = nPos2 = nDis = list.length;
+
+  for (var i = 0; i < list.length; i++) {
+    if (list[i] == n1) {
+         nPos1 = i;
+         console.log("position one " + nPos1);
+    } else if (list[i] == n2)
+         nPos2 = i;
+         console.log("position two " + nPos2);
+        console.log('Distance' + nDis)
+    if (nPos1 < list.length && nPos2 < list.length){
+         if (nDis > Math.abs(nPos1 - nPos2))
+            nDis = Math.abs(nPos1 - nPos2);
+    }
+  }
+
+   return nDis == list.length ? -1 : nDis;
+}
+binarySearchNodeDistance(list, 8, 3);
+
+ 
+
+
+
+
+
+
+
