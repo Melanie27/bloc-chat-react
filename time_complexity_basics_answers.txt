@@ -1,0 +1,14 @@
+1. What is time complexity and what is its relation to algorithms?
+Time complexity estimates the time it takes to execute a program. The calculation is how quickly the program runtime grows compared to the growth of input into the program .
+2. What is runtime? Runtime can refer to the duration of time to run an algorithm and is used synonymously with time complexity.
+3. How is the runtime of an algorithm calculated?  Add up the number of instructions the algorithm will execute as a function of the size of its data input, simplify the expression to the largest term and drop any constants
+4. Constant growth rate, logarithmic growth rate, linear growth rate, log-linear growth rate, quadratic growth rate, exponential growth rate.
+
+Cubic growth rate was not included in this checkpoint and it lies between quadratic and exponential in terms of efficiency.
+
+5. A round robin tennis tournament is an example of the quadratic growth rate, where the number of rounds is proportional to the square of the number of players.
+
+
+6. The time complexity of the function linearSearch is 0(n)
+7. The time complexity of the function foo is O(n^2) (Quadratic Growth Rate)
+8. The time complexity of the function fibonacci (O(2^n)).
