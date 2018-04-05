@@ -1,0 +1,51 @@
+1. Why do programmers use pseudocode?
+It’s an informal language that developers use to develop algorithms without getting caught up in a given language’s syntax nuances. Developers use pseudocode to express and understanding concepts that they will later implement in an actual programming language. 
+
+
+2. Nothing would happen if you ran pseudocode on your computer. It is not a functional language. 
+
+
+1. 
+INPUT first number
+INPUT second number
+IF the first number is greater than the second number 
+     PRINT the first number
+ELSE
+PRINT the second number
+
+2. 
+SET first number to 1
+INPUT the number
+While the number is less than 100 
+PRINT the number
+INCREMENT the number by 1
+ENDWHILE
+
+3.Create a function that searches for a specific entry in a phonebook
+FUNCTION phonebookSearch (list, searchTerm) {
+FOR index FROM > 0 -> length(list):
+IF list[index] == searchTerm THEN
+RETURN index
+ENDIF
+}
+
+4.
+
+var list = ["Melanie", "Aaron", "Julie", "Zelda", "Paul", "Spencer", "Kate"];
+
+
+function phonebookSearch(list, searchTerm) {
+  for (i=0; i <= list.length; i ++) {
+    if (list[i] == searchTerm) {
+      console.log(list[i]);
+      return list[i];
+    } 
+    
+  }
+  return "not in the list";
+  
+}
+
+phonebookSearch(list, "Aaron");
+
+
