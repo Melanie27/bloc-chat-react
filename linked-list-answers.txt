@@ -1,0 +1,110 @@
+
+1.What are some pros and cons of using linked lists instead of arrays?
+The main pro of using a linked list is that it takes up much less memory than an array does. The drawback is that you cannot access elements by index.
+
+2.Come up with a real world example of a linked list.
+A treasure hunt.
+
+
+1. Change to 
+LinkedList.prototype.push = function(element) {
+	SET node = {
+		value:element,
+		next: null
+		
+	}
+	if the head node does not exist
+		THEN SET head to node
+	else
+		
+		SET current node to head
+		WHILE current.next
+			SET current.node  to next.node
+		ENDWHILE
+
+		SET current.next to node
+
+}
+
+2.
+LinkedList.prototype.removeDuplicates = function () {
+    // Empty or a single element Linked List
+    if (!this.head || !this.head.next) {
+      console.log('No duplicates were found.');
+      return;
+    }
+
+    var p1;
+    var p2;
+    var nodes = {};
+
+    p1 = this.head;
+    p2 = p1.next;
+    nodes[p1.data] = true;
+
+    while (p2) {
+        var data = p2.data;
+        if (nodes[data]) {
+            p1.next = p2.next;
+        } else {
+            nodes[data] = true;
+            p1 = p2;
+        }
+        p2 = p2.next;
+    }
+};
+
+var L5 = new LinkedList();
+L5.insertNodeAtTail(5);
+L5.insertNodeAtTail(6);
+L5.insertNodeAtTail(7);
+L5.insertNodeAtTail(5);
+L5.insertNodeAtTail(5);
+L5.insertNodeAtTail(8);
+
+L5.removeDuplicates();
+console.log(L5);
+
+ 
+
+3. 
+var reverseLinkedList = function(linkedlist) {
+  var node = linkedlist;
+  var previous = null;
+
+  while(node) {
+    var save = node.next;
+    node.next = previous;
+    previous = node;
+    node = save;
+  }
+  return previous;  
+}
+linkedlist = reverseLinkedList(linkedlist);
+
+
+
+
+
+
+
+Limitation of an array is memory
+
+Linked lists are data structures that permit the sequential order of elements, but circumvent the memory issues of an array.
+
+Array occupies n consecutive memory blocks where n is the number of elements in each array - inserting a new element in an array is an expensive process
+
+CLASS SheepNode
+  Sheep sheep
+  SheepNode next
+END CLASS
+
+FUNCTION find(headSheepNode, sheep)
+  SET tempNode to headSheepNode
+  WHILE tempNode exists AND NOT(tempNode.sheep = sheep)
+    SET tempNode to tempNode.next
+  END WHILE
+  RETURN tempNode
+END FUNCTION
+
+2.
