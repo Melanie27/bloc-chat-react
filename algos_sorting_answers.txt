@@ -1,0 +1,36 @@
+1. Write pseudocode for Bubble Sort
+
+FUNCTION bubbleSort(items) 
+	n = length of items
+	repeat
+		swapped = false
+		FOR i = 1 to n-1 	
+			IF i - 1 > i THEN
+				SWAP i-1 and i
+				swapped = true
+			END IF
+		END FOR
+	stop repeat when swapping stops
+END FUNCTION
+
+2. Write pseudocode for Quicksort
+
+FUNCTION quickSort(items, low, high)
+	IF low < high then
+        	p = partition(A, lo, hi)
+        	quicksort(A, low, p - 1 )
+        	quicksort(A, p + 1, high)
+	END IF
+END FUNCTION
+
+
+
+
+
+3. Identify why merge sort and quick sort are much more efficient than the other algorithms.
+ Quicksort can operate in-place on an array, which requires small additional amounts of memory to perform the sorting. Quicksort makes good use of available caches. Mergesort is an efficient, divide and conquer, sorting algorithm. 
+
+
+
+4. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+Bucket sort distributes the elements of an array into a number of buckets or bins. Then, each bucket is sorted individually with the best algorithm for the type of data found inside. This type of sorting is a distribution sort. The ideal input for bucket sort is data that can be distributed evenly between the buckets.
