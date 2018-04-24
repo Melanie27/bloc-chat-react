@@ -1,0 +1,82 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww17700\viewh11480\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Recursion\
+\
+1. Define and Compare recession and iteration\
+Recursion describes a function that calls itself. Recursive solutions require base case conditions\
+to stop them from going on infinitely. Check the base cases first and if none of those are met\
+move on to execute the recursive case.\
+Iteration is when you solve a problem using a loop to repeat a process. Recursive solutions\
+tend to run more slowly than iterative solutions. They are also more subject to system\
+limitations. But, iterative solutions can be harder to implement.\
+\
+2. Name 5 algorithms that are commonly implemented by recursion\
+3.\
+4.\
+\
+5. \
+var test = [ [1,4,9], [34, 6, [1,3,4] ], [ 9, 7, 89] ];\
+class Counter \{\
+	constructor()\{\
+		this.count = 0;\
+	\}\
+	countItems(arr)\{\
+		while (arr.length > 0) \{\
+			var item = arr.pop();\
+			if(Array.isArray(item)) \{\
+				this.countItems(item);\
+			\} else \{\
+				this.count++;\
+			\}\
+		\}\
+	\}\
+\}\
+\
+var counter = new Counter();\
+counter.countItems(test);\
+console.log(counter.count);\
+\
+6.\
+\
+function isPalindrome(testString) \{\
+	let length = testString.length;\
+	if(length <= 1) \{\
+		return true;\
+	\}\
+	if(testString.charAt(0) === testString.charAt(length - 1)) \{\
+		return isPalindrome(testString.slice(1, length - 1));\
+	\}\
+	return false;\
+\}\
+	console.log(isPalindrome('racecar'));\
+	console.log(isPalindrome('cat'));\
+\
+\
+7.\
+\
+var houses = [\{house:'house1', hasCat:false\}, \{house : 'house2',  hasCat:false\}, \{house : 'house3',  hasCat:false\}, \{house : 'house4',  hasCat:true\}, \{house : 'house5',  hasCat:false\}, \{house : 'house6',  hasCat:false\}, ];\
+\
+function checkForCat(houses) \{\
+  \
+  if (houses.length <1 || houses === undefined ) \{\
+    return false;\
+  \}\
+  \
+  var firstHouse = houses.shift();\
+  \
+   if(firstHouse.hasCat === true) \{\
+     return true;\
+   \} else \{\
+     \
+     console.log(firstHouse);\
+     return checkForCat(houses);\
+   \}\
+  \
+\}\
+\
+console.log(checkForCat(houses));}
