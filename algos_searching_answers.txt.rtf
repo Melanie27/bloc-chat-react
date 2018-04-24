@@ -1,0 +1,56 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww14640\viewh9820\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Short Answer\
+1. Real life scenario that uses linear search - looking for a piece of mail in an unsorted heap\
+2. Real life scenario that uses binary search - searching for a word in a dictionary\
+3. 7 iterations to find the letter G in a linear search of this checkpoints alphabet collection\
+4. 3 Iterations to find the letter G in a binary search of this checkpoints alphabet collection\
+5. You have to use a linear search if you have an unsorted collection because you can\'92t pick a\
+midpoint that has any significance in an unsorted list\
+6. A sorted collection of a million items I would use a binary search because it will quickly\
+reduce the data set that you are looking at by half each iteration. A linear search will only reduce\
+the data set by a single item in each iteration.\
+\
+\
+Programming Questions\
+\
+1. var words = ['a', 'b', 'c', 'd', 'e'];\
+function binaryWordSearch(words, wordToFind)\{\
+  var counter = 0;\
+  var top = words.length - 1;\
+  var bottom = 0;\
+  while (top >= bottom) \{\
+    counter++;\
+    var mid = (top + bottom) >> 1;\
+    if (words[mid] === wordToFind) \{\
+      console.log('found', wordToFind, 'in', counter);\
+      return mid;\
+    \}\
+    \
+    if (words[mid] > wordToFind)\{\
+      top = mid - 1;\
+    \} else \{\
+      bottom = mid + 1;\
+    \}\
+  \}\
+  console.log('did not find', wordToFind, 'in', counter);\
+  return -1;\
+\}\
+\
+2. var fishes = ['goldfish', 'redfish', 'yellowfish', 'greenfish', 'whitefish'];\
+ \
+ function findFish(fishes, targetFish)\{\
+  for (var i = 1; i<fishes.length; i++) \{\
+    if (fishes[i] === targetFish) \{\
+      return fishes[i];\
+    \}\
+  \} return null;\
+ \}\
+ \
+console.log(findFish(fishes, 'whitefish'));\
+console.log(findFish(fishes, 'clownfish'));}
