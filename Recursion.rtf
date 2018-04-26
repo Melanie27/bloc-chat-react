@@ -2,7 +2,7 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww17700\viewh11480\viewkind0
+\margl1440\margr1440\vieww16020\viewh11940\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 Recursion\
@@ -11,13 +11,19 @@
 Recursion describes a function that calls itself. Recursive solutions require base case conditions\
 to stop them from going on infinitely. Check the base cases first and if none of those are met\
 move on to execute the recursive case.\
+\
 Iteration is when you solve a problem using a loop to repeat a process. Recursive solutions\
 tend to run more slowly than iterative solutions. They are also more subject to system\
 limitations. But, iterative solutions can be harder to implement.\
 \
 2. Name 5 algorithms that are commonly implemented by recursion\
-3.\
-4.\
+Factorial algorithm, Fibonacci sequence, Binary Search, Reversing a String, Greatest Common Divisor\
+\
+3. When should you use recursion and when should you avoid recursion?\
+You should use recursion when an algorithm can be defined as a combination of sub-results that starts with known cases. Even when the recursive solution seems like the best solution you have to examine the cost of the repeated calculations and if that cost causes a performance problem that could be obviated by an iterative solution.\
+\
+4. Compare the recursive solutions and iterative solutions to the three algorithms from the checkpoint (Factorial, Maximum and Fibonacci).\
+Iterative sets the variable (or variables) and the for loop is the meat of the solution. The iterative solutions return a list, where each element is evaluated through the loop until the loop runs out of elements. The factorial solutions all start with one or more bases cases. Then they run a function that changes the argument being passed to the function and forces another function call, until we hit the base case.\
 \
 5. \
 var test = [ [1,4,9], [34, 6, [1,3,4] ], [ 9, 7, 89] ];\
